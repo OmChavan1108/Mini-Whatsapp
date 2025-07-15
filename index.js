@@ -45,10 +45,7 @@ app.post('/chats',(req,res)=>{
         from:from,
         to:to,
         msg:msg,
-         date: {
-         type: Date,
-         default: Date.now  // ✅ Automatically set date if not provided
-  }
+        date:date
     })
     newchat.save().then(()=>{console.log('chat saved')}).catch((err)=>{console.log(err)})
     res.redirect('/chats')
