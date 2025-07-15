@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chats</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>This Are Chats</h1>
+     <a href="http://localhost:8080/chats/new"><button>Sent Message</button></a>
+    <% for(let chat of chats) {%>
+      <hr>
+        <div class="chat">
+      <h3>From:<i><%= chat.from %></i></h3>
+      <h3><i>To:<%= chat.to %></i></h3>
+      <div class="msg">
+       <h4>Message:<%= chat.msg %></h4>
+       </div>
+      <% if (chat.date) { %>
+        <p>Date: <%= chat.date.toString().split(" ").slice(0,4).join(" ") %></p>
+        <p>Time: <%= chat.date.toString().split(" ").slice(4,5).join(" ") %></p>
+      <% } else { %>
+        <p>Date: Not Available</p>
+        <p>Time: Not Available</p>
+      <% } %>
+
+      <form method="get" action="/chats/<%= chat.id %>/edit">     <!--Edit route-->
+        <button>Edit</button></form> 
+      
+      <form method="post" action="/chats/<%= chat._id %>?_method=DELETE">     <!--delete route-->
+        <button>Delete</button></form>
+       </div>
+        <% } %> <hr>
+       
+</body>
+</html>

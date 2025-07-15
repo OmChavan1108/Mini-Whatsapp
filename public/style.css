@@ -1,0 +1,13 @@
+.chat{
+    background-color:lightblue;
+    padding: 5px;
+    border-radius: 20px;
+    margin: 5px;
+    display: inline-block;
+}
+
+.msg :hover{
+    background-color: lightcoral;
+    padding: 5px;
+    margin: 22px;
+}
